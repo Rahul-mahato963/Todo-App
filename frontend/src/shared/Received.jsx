@@ -17,20 +17,23 @@ function Received() {
     }
   };
 
-  const deleteTodo = async (id) => {
-    try {
-      await axios.delete(`http://localhost:3000/api/delete/${id}`);
-      loadData();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
 
   const editTodo = async (id) => {
     try {
       await axios.put(`http://localhost:3000/api/update/${id}`, {text: editText });
       setEditId(null);
       setEditText("");
+      loadData();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+    const deleteTodo = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3000/api/delete/${id}`);
+
       loadData();
     } catch (error) {
       console.log(error);

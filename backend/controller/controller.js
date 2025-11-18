@@ -54,17 +54,26 @@ export const update=async (req ,res)=>{
 
 
 
-export const deleted =async (req ,res)=>{
-     const { id } = req.params;
+export const deleted = async (req, res) => {
+  const { id } = req.params;
+
   if (!id) {
-    return res
-      .status(400)
-      .json({ message: "bad request pls check your input for deleted" });
+    return res.status(400).json({ message: "ID is required" });
   }
-  const deleteddata = await todomodel.findByIdAndDelete(id);
-  if (deleteddata) {
-    return res.status(200).json({ message: "sucessfully deleted todos" });
+
+  try {
+    const deletedData = await todomodel.findByIdAndDelete(id);
+    if (!deletedData) {
+      console.log("Todo not found for ID:", id);
+      return res.status(404).json({ message: "Todo not found" });
+    }
+    console.log("Deleted:", deletedData);
+    return res.status(200).json({ message: "Todo deleted successfully", deletedData });
+  } catch (error) {
+    console.log("Server error:", error);
+    return res.status(500).json({ message: "Server error", error });
   }
-}
+};
+
 
  
