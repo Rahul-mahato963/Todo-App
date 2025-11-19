@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import router from "./route/routes.js";
-import path from "path"
+
 import dotenv from "dotenv"
 dotenv.config();
 const PORT = process.env.PORT || 4000;
@@ -18,13 +18,10 @@ mongoose
   .then((res) => console.log("mongodb connected"))
   .catch((err) => console.log("mongodb not connected"));
 
-  const __dirname=path.resolve()
+  
 app.use("/api",router);
 
-app.use(express.static(path.join(__dirname, "frontend/dist")));
-app.get(/.*/,(_, res)=>{
-res.sendFile(path.resolve(__dirname, "frontend/dist/index.html"))
-});
+
 
 app.listen(PORT, () => {
   console.log(`server is running on the port on ${PORT}`);

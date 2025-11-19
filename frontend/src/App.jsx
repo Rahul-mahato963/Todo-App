@@ -1,16 +1,12 @@
-import { useState } from 'react'
+import React from 'react'
+import Receive from './pages/Receive'
 
-import Received from './shared/Received'
 
-
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-  <div>
-    <Received/>
-  </div>
-   
+    <div>
+    <Receive/>
+    </div>
   )
 }
 

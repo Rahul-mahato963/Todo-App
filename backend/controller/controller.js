@@ -64,7 +64,7 @@ export const deleted = async (req, res) => {
   try {
     const deletedData = await todomodel.findByIdAndDelete(id);
     if (!deletedData) {
-      console.log("Todo not found for ID:", id);
+      
       return res.status(404).json({ message: "Todo not found" });
     }
     console.log("Deleted:", deletedData);
