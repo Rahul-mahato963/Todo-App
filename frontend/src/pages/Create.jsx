@@ -24,7 +24,7 @@ const Create = () => {
         value={task} onChange={(e)=>setTask(e.target.value)}
         className='border -2 pink'
         />
-        <Button onClick={handleadd} className="bg-green-600 mt-5">add task</Button>
+        <Button onClick={handleadd} className="bg-green-900 mt-5">add task</Button>
       </div>
     </div>
     
