@@ -62,8 +62,8 @@ const Receive = () => {
                   value={newtext}
                   onChange={(e) => setNewtext(e.target.value)}
                 />
-                <Button onClick={()=>updatetodo(todo._id) } className="bg-green-600">save</Button>
-                <Button onClick={()=>setIndexid(null)} className="bg-red-400">cancel</Button>
+                <Button onClick={()=>updatetodo(todo._id) } className="bg-green-800">save</Button>
+                <Button onClick={()=>setIndexid(null)} className="bg-red-600">cancel</Button>
               </>
             ) : (
               <>
@@ -77,7 +77,7 @@ const Receive = () => {
                 >
                   edit
                 </Button>
-                <Button onClick={() => deletetodo(todo._id)} className="bg-red-600 mt-2 ml-5">delete</Button>
+                <Button onClick={() => deletetodo(todo._id)} className="bg-red-700 mt-2 ml-5">delete</Button>
               </div>
               </>
             )}
